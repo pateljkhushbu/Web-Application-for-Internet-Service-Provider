@@ -1,0 +1,23 @@
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: 'Employe/GetEmployees',
+                method: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    $('#example').dataTable({
+                        data: data,
+                        columns: [
+                            { 'data': 'Id' },
+                            { 'data': 'FirstName' },
+                            { 'data': 'LastName' },
+                            { 'data': 'Gender' },
+                            { 'data': 'JobTitle' },
+                            
+                           
+                        ]
+                    });
+                }
+            });
+        });
+    </script>

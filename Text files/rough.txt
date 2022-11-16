@@ -1,0 +1,30 @@
+
+            <li class="nav-item">
+            <div class="container">
+              <div class="dropdown" >
+              <button class="btn dropdown-toggle text-white" style="background-color:rgb(4, 51, 104);" type="button" data-toggle="dropdown">Login<span class="caret"></span></button>
+              <ul class="dropdown-menu" style="background-color:#31fcfc; border:solid 3px; text-align:center;">
+     		 <li><a href="" class="text-white">Sign Up</a></li>
+             <hr style="background-color:black;" ></hr>
+      		<li><a href="" class="text-white">Sign In</a></li>
+    		</ul>
+	</div>
+    </div>
+            </li>
+                      <pre>  </pre>
+
+background: linear-gradient(to left, hsl(193, 86%, 72%), #000046);
+
+background: linear-gradient(to left, #1cb5e0, #000046);
+				
+
+
+background: #948E99;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2E1437, #948E99);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2E1437, #948E99); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			
+
+
+<li class="nav-item">
+  			<a href="" class="btn text-white" style="background-color:rgb(4, 51, 104); font-size: 20px;" role="button" >View Products</a>	
+            </li>							

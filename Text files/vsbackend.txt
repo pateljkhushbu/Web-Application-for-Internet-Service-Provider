@@ -1,0 +1,71 @@
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace ISP
+{
+    public partial class Login : System.Web.UI.Page
+    {
+        
+         MySqlConnection con;
+         MySqlCommand cmd;
+        public string ConnectionString { get; private set; }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                ConnectionString = "Server=127.0.0.1;Port=3306;Database=db1;Uid=root;pwd=1234;";
+                con = new MySqlConnection(ConnectionString);
+                con.Open();
+                Label1.Text = "Database Connected";
+
+            }
+            catch (Exception)
+            {
+                           }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            cmd = new MySqlCommand("insert into student values(1,'hlo')");
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            Response.Write("Record Inserted");
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            cmd = new MySqlCommand("update student set name='by' where name='hlo'");
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            Response.Write("Record Inserted");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            cmd = new MySqlCommand("delete from student where name='hii'");
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            Response.Write("Record deleted");
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            MySqlCommand cmd = new MySqlCommand("select * from student");
+            MySqlDataAdapter ad = new MySqlDataAdapter();
+            cmd.Connection = con;
+            ad.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+            con.Close();
+        }
+    }
+}

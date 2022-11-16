@@ -1,0 +1,61 @@
+
+chart db:
+
+ protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                // Call Get ChartData() method in the PageLoad event
+                GetChartData();
+             
+            }
+
+        }
+
+        private void GetChartData()
+        {
+            string cs = ConfigurationManager.ConnectionStrings["CS"].ConnectionString;
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                // Command to retrieve Students data from Students table
+                MySqlCommand cmd = new MySqlCommand("Select cName, c_values from chart", con);
+                con.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                // Retrieve the Series to which we want to add DataPoints
+                Series series = Chart1.Series["Series1"];
+                // Loop thru each Student record
+                while (rdr.Read())
+                {
+                    // Add X and Y values using AddXY() method
+                    series.Points.AddXY(rdr["cName"].ToString(), rdr["c_values"]);
+                }
+            }
+
+        }
+
+
+-----------------------------
+chart design:
+          <asp:Chart ID="Chart1" runat="server" Height="470px" Width="491px" BackColor="Transparent" >
+            <series>
+                <asp:Series Name="Series1"  ChartType="Doughnut" YValuesPerPoint="2" BorderColor="black" BorderWidth="4" >
+               
+
+                </asp:Series>
+            </series>
+            <chartareas>
+            <asp:ChartArea Name="ChartArea1" BackColor="Transparent">
+           
+                <Area3DStyle Enable3D="true" />
+             </asp:ChartArea>
+            </chartareas>
+             </asp:Chart>
+        <br />
+        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br />
+
+    </div>
+    </form>
+</body>
+</html>

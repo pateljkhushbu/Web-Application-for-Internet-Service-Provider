@@ -1,0 +1,105 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.Master.cs" Inherits="ISPDEMO.Site2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+     <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css"/>
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+    <script src="Bootstrap/jQuery/jQuery-3.4.1.slim.min.js"></script>
+    <script src="Bootstrap/popper/popper.min.js"></script>
+
+    
+        <style>
+  body {
+  	padding-top:50px;
+    background: linear-gradient(to bottom, #afcdfa, white);
+    
+}
+
+.navbar-nav > li{
+  padding-left:30px;
+  padding-right:30px;
+}
+
+.navbar{
+background: linear-gradient(to bottom, #71d8f5, #000046);
+border-bottom: 3px solid;
+border-color: black;
+
+}
+
+.nav-link:hover{
+    background-color:darkblue;
+
+} 
+
+ .nav-link{
+ font-size: 20px;
+ font-weight: bold;
+}
+</style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
+     <a class="navbar-brand" style=" font-size:20px; color: whitesmoke;" href="#"><em>Map Infotel</em></a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive " aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+             </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">    
+            <li class="nav-item">
+              <a class="nav-link active" href="Home.aspx">Home</a>
+            </li>
+         <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
+          Plans
+        </a>
+        <div class="dropdown-menu active" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="homeplan.aspx">Home</a>
+          <a class="dropdown-item" href="officeplan.aspx">Office</a>
+       </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Enroll.aspx">Enroll</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link active" href="Contact.aspx">Contact</a>
+            </li>
+  
+            <li class="nav-item ">
+              <a class="nav-link active" href="About.aspx">About</a>
+            </li>
+              
+				 <li class="nav-item">
+              <a class="nav-link active" href="Login.aspx">Login</a>
+            </li>
+          </ul> 
+        </div>
+
+     </nav>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <footer class="page-footer" style="background-color:blue;">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="Home.aspx"> Map Infotel</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="ISPDEMO.WebForm3" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+     <link rel="stylesheet" type="text/css" href="DataTables/Responsive-2.2.2/css/responsive.dataTables.css"/>
+    <script src="DataTables/jQuery-3.3.1/jQuery-3.3.1.js"></script>
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+    <script type="text/javascript" src="DataTables/Responsive-2.2.2/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="DataTables/Responsive-2.2.2/js/responsive.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#GridView1').prepend($("<thead></thead>").append($("#GridView1").find("tr:first"))).DataTable();
+            $("#GridView1").addClass("table table-striped table-light table-bordered table-hover").DataTable();
+            
+           
+            
+        } );
+    </script>
+    <style>
+    body{    
+        	padding-top:90px;
+    height:800px;
+  
+    background: linear-gradient(to bottom, #afcdfa, white );
+    }
+
+    .table{
+    }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    <div class="table-wrapper-scroll-y">
+        <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>     
+     </div>
+        <br />
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Button" />
+        <br />
+        <br />
+        <br />
+        <br />
+        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click1" Text="Button" />
+        <br />
+        <br />
+        <br />
+        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click1" Text="Button" />
+        <br />
+        <br />
+        <asp:Button ID="Button4" runat="server" OnClick="Button4_Click1" Text="Button" />
+        <br />
+        <br />
+    </div>
+    </form>
+</body>
+</html>
